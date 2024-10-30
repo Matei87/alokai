@@ -1,11 +1,11 @@
 'use client';
 import { use } from 'react';
 import { redirect } from 'next/navigation';
-import ProductDetails from '../../../components/ProductDetails';
-import Gallery from '../../../components/Gallery';
-import ProductCard from '../../../components/ProductCard';
 import { selectProducts } from '../../../redux/selectors.js';
 import { useAppSelector } from '../../../redux/hooks';
+import Gallery from '../../../components/Gallery';
+import ProductDetails from '../../../components/ProductDetails';
+import ProductCard from '../../../components/ProductCard';
 
 const ProductPage = ({ params }) => {
   const { code } = use(params);

@@ -7,12 +7,16 @@ import {
   SfIconSearch,
   SfIconMenu,
   SfIconArrowBack,
+  SfCounter,
 } from '@storefront-ui/react';
+import { useAppSelector } from '../redux/hooks.js';
+import { selectCart } from '../redux/selectors.js';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function NavBarTop() {
   const [inputValue, setInputValue] = useState('');
+  const cart = useAppSelector(selectCart);
 
   const actionItems = [
     {
@@ -27,6 +31,8 @@ export default function NavBarTop() {
     event.preventDefault();
     alert(`Successfully found 10 results for ${inputValue}`);
   };
+
+  console.log(cart);
 
   return (
     <header className='flex justify-center w-full py-2 px-4 lg:py-5 lg:px-6 text-white border-0 bg-primary-700 md:pt-2.5 md:shadow-md'>
@@ -110,7 +116,7 @@ export default function NavBarTop() {
             {actionItems.map((actionItem) => (
               <Link
                 href={'/cart'}
-                className='underline text-lime-500'
+                className='underline text-lime-500 relative'
                 key={actionItem.ariaLabel}
               >
                 <SfButton
@@ -126,6 +132,15 @@ export default function NavBarTop() {
                     </p>
                   )}
                 </SfButton>
+                {cart.length > 0 && (
+                  <SfCounter
+                    size='2xs'
+                    pill
+                    className='absolute top-1 right-1 text-black bg-white'
+                  >
+                    {cart.length}
+                  </SfCounter>
+                )}
               </Link>
             ))}
           </div>

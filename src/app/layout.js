@@ -1,6 +1,5 @@
 import localFont from 'next/font/local';
 import './globals.css';
-import NavBarTop from '../components/NavBarTop';
 import Footer from '../components/Footer';
 import ReduxProvider from '../redux/reduxProvider.jsx';
 
@@ -27,7 +26,6 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ReduxProvider>
-          <NavBarTop />
           {children}
           <Footer />
         </ReduxProvider>
