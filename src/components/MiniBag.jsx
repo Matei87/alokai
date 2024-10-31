@@ -1,8 +1,8 @@
 import { useId, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { selectCart } from '../redux/selectors.js';
-import { useAppSelector } from '../redux/hooks.js';
-import { removeProductFromCart } from '../redux/slice.js';
+import { selectCart } from '../store/selectors.js';
+import { useAppSelector } from '../store/hooks.js';
+import { removeProductFromCart } from '../store/slice.js';
 import QuantitySelector from './QuantitySelector';
 import Image from 'next/image';
 import Link from 'next/link.js';

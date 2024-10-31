@@ -7,8 +7,8 @@ import {
   SfIconShoppingCart,
   useDisclosure,
 } from '@storefront-ui/react';
-import { useAppDispatch } from '../redux/hooks.js';
-import { addToCart } from '../redux/slice.js';
+import { useAppDispatch } from '../store/hooks.js';
+import { addToCart } from '../store/slice.js';
 import Image from 'next/image';
 import MiniBag from './MiniBag.jsx';
 
@@ -16,8 +16,6 @@ const ProductCard = ({ product }) => {
   const { isOpen, open, close } = useDisclosure({ initialValue: false });
   const dispatch = useAppDispatch();
   const { id, image, title, price, rating } = product;
-
-  console.log('ProductCard ', open);
 
   return (
     <div className='border border-neutral-200 rounded-md hover:shadow-lg max-w-[300px]'>

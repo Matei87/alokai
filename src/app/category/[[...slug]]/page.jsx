@@ -1,7 +1,7 @@
 'use client';
 import { use } from 'react';
-import { selectProducts } from '../../../redux/selectors.js';
-import { useAppSelector } from '../../../redux/hooks';
+import { selectProducts } from '../../../store/selectors.js';
+import { useAppSelector } from '../../../store/hooks';
 import CategorySidebar from '../../../components/CategorySidebar';
 import ProductCard from '../../../components/ProductCard';
 

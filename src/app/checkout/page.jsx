@@ -4,14 +4,15 @@ import {
   SfIconCreditCard,
   SfIconBlock,
 } from '@storefront-ui/react';
-import { selectCart } from '../../redux/selectors.js';
-import { useAppSelector } from '../../redux/hooks.js';
+import { selectCart } from '../../store/selectors.js';
+import { useAppSelector } from '../../store/hooks.js';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
 const CheckoutPage = () => {
   const cart = useAppSelector(selectCart);
+
   const itemsQuantity = cart
     .map((items) => items.quantity)
     .reduce((prev, curr) => prev + curr, 0);

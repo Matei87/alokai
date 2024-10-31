@@ -1,9 +1,11 @@
 'use client';
-import store from './store';
+import store, { persistor } from './store';
 import { Provider } from 'react-redux';
 import { usePathname } from 'next/navigation';
 import NavBar from '../components/NavBar';
 import NavbarCheckout from '../components/NavbarCheckout';
+
+import { PersistGate } from 'redux-persist/integration/react';
 
 const ReduxProvider = ({ children }) => {
   const pathname = usePathname();
@@ -11,8 +13,10 @@ const ReduxProvider = ({ children }) => {
 
   return (
     <Provider store={store}>
-      {navbar}
-      {children}
+      <PersistGate loading={null} persistor={persistor}>
+        {navbar}
+        {children}
+      </PersistGate>
     </Provider>
   );
 };

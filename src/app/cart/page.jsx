@@ -3,9 +3,9 @@ import { SfButton, SfIconArrowBack } from '@storefront-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import QuantitySelector from '../../components/QuantitySelector';
-import { selectCart } from '../../redux/selectors.js';
-import { useAppSelector, useAppDispatch } from '../../redux/hooks.js';
-import { removeProductFromCart } from '../../redux/slice.js';
+import { selectCart } from '../../store/selectors.js';
+import { useAppSelector, useAppDispatch } from '../../store/hooks.js';
+import { removeProductFromCart } from '../../store/slice.js';
 
 const CartPage = () => {
   const cart = useAppSelector(selectCart);

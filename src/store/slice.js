@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { rememberReducer } from 'redux-remember';
 import data from './data.json';
 
 const initialState = {
@@ -8,7 +7,7 @@ const initialState = {
 };
 
 const mainSlice = createSlice({
-  name: 'root',
+  name: 'mainSlice',
   initialState,
   reducers: {
     addToCart: (state, action) => {
@@ -26,25 +25,8 @@ const mainSlice = createSlice({
     removeProductFromCart: (state, action) => {
       state.cart = state.cart.filter((item) => item.id !== action.payload);
     },
-    removeAllProducts: (state) => {
-      state.cart = [];
-    },
   },
 });
 
-// Action creators are generated for each case reducer function
-export const { addToCart, removeProductFromCart, removeAllProducts } =
-  mainSlice.actions;
-
-// export default mainSlice.reducer;
-
-const mainReducer = {
-  mainSlice: mainSlice.reducer,
-};
-
-// export const mainAction = {
-//   ...mainSlice.actions,
-// };
-
-export const rememberedState = ['mainSlice'];
-export const reducer = rememberReducer(mainReducer);
+export const { addToCart, removeProductFromCart } = mainSlice.actions;
+export default mainSlice.reducer;
