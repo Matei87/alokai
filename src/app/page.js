@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main className='flex flex-col justify-center align-center gap-6 mx-auto max-w-[1536px]'>
       <Hero product={products[1]} />
-      <Banner product={products[0]} />
+      <Banner product={products[5]} />
       <ProductSlider products={products.slice(0, 10)} />
     </main>
   );

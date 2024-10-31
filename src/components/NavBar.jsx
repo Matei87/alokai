@@ -113,7 +113,7 @@ const NavBar = () => {
           <div className='flex flex-row flex-nowrap'>
             {actionItems.map((actionItem) => (
               <Link
-                href={'/cart'}
+                href={'/shoppingbag'}
                 className='underline text-lime-500 relative'
                 key={actionItem.ariaLabel}
               >

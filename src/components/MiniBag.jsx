@@ -133,10 +133,10 @@ const MiniBag = ({ isOpen, close }) => {
               <span className='font-semibold'>${totalItemsPrice}</span>
             </div>
             <Link
-              href={'/cart'}
+              href={'/shoppingbag'}
               className='bg-black uppercase p-2 text-center text-white'
             >
-              Continue to Cart
+              Continue to Shopping Bag
             </Link>
             <span className='uppercase my-1 text-sm'>
               you can also checkout with:
