@@ -1,8 +1,8 @@
 'use client';
 import { use } from 'react';
 import { redirect } from 'next/navigation';
-import { selectProducts } from '../../../redux/selectors.js';
-import { useAppSelector } from '../../../redux/hooks';
+import { selectProducts } from '../../../store/selectors.js';
+import { useAppSelector } from '../../../store/hooks';
 import Gallery from '../../../components/Gallery';
 import ProductDetails from '../../../components/ProductDetails';
 import ProductCard from '../../../components/ProductCard';

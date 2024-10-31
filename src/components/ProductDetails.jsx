@@ -16,8 +16,8 @@ import {
   SfIconShoppingCartCheckout,
   useDisclosure,
 } from '@storefront-ui/react';
-import { useAppDispatch } from '../redux/hooks.js';
-import { addToCart } from '../redux/slice.js';
+import { useAppDispatch } from '../store/hooks.js';
+import { addToCart } from '../store/slice.js';
 import { useCounter } from 'react-use';
 import { useId } from 'react';
 import { clamp } from '@storefront-ui/shared';
