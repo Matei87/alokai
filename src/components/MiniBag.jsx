@@ -7,6 +7,8 @@ import QuantitySelector from './QuantitySelector';
 import Image from 'next/image';
 import Link from 'next/link.js';
 import { SfModal, SfButton, SfIconClose } from '@storefront-ui/react';
+import Paypal from '../../public/payPal.svg';
+import Apple from '../../public/applePay.svg';
 
 const MiniBag = ({ isOpen, close }) => {
   const cart = useAppSelector(selectCart);
@@ -68,7 +70,7 @@ const MiniBag = ({ isOpen, close }) => {
           <header className='flex justify-center items-center'>
             <h3
               id={headingId}
-              className='font-bold text-center uppercase border-bottom'
+              className='font-bold text-center text-black uppercase border-bottom'
             >
               Shopping Bag ({cart.length})
             </h3>
@@ -86,7 +88,7 @@ const MiniBag = ({ isOpen, close }) => {
               {cart.map(({ id, image, title, price, quantity }) => (
                 <div
                   key={id}
-                  className='flex relative justify-between items-center border border-neutral-200 rounded-md md:shadow-lg gap-2 p-4'
+                  className='text-black flex relative justify-between items-center border border-neutral-200 rounded-md md:shadow-lg gap-2 p-4'
                 >
                   <Link
                     className='focus-visible:outline focus-visible:outline-offset focus-visible:rounded-md'
@@ -125,7 +127,7 @@ const MiniBag = ({ isOpen, close }) => {
             </div>
           </div>
           <footer className='flex flex-col gap-4 mt-auto'>
-            <div className='flex justify-between w-full'>
+            <div className='flex justify-between w-full text-black'>
               <div className='flex flex-col'>
                 <p className='font-semibold margin-0'>SUBTOTAL</p>
                 <p className='margin-0'>Includes VAT</p>
@@ -138,14 +140,14 @@ const MiniBag = ({ isOpen, close }) => {
             >
               Continue to Shopping Bag
             </Link>
-            <span className='uppercase my-1 text-sm'>
+            <span className='uppercase my-1 text-sm text-black'>
               you can also checkout with:
             </span>
             <button className='bg-yellow-400 p-2 flex justify-center items-center'>
-              <Image src='./payPal.svg' width={50} height={21} alt='paypal' />
+              <Image src={Paypal} width={50} height={21} alt='paypal' />
             </button>
             <button className='bg-black p-2 flex justify-center items-center'>
-              <Image src='./applePay.svg' width={48} height={21} alt='apple' />
+              <Image src={Apple} width={48} height={21} alt='apple' />
             </button>
           </footer>
         </SfModal>

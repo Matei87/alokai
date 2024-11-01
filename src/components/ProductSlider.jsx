@@ -49,12 +49,12 @@ const ProductSlider = ({ products }) => {
           key={id}
           className='first:ms-auto last:me-auto ring-1 ring-inset ring-neutral-200 shrink-0 rounded-md hover:shadow-lg w-[148px] h-[290px] lg:w-[192px]'
         >
-          <div className='relative'>
+          <div className=''>
             <SfLink href='#' className='block'>
               <Image
                 src={image}
                 alt={title}
-                className='block object-contain  rounded-md aspect-square lg:w-[190px] lg:h-[190px]'
+                className='block object-contain rounded-md aspect-square lg:w-[190px] lg:h-[190px]'
                 width='146'
                 height='146'
               />

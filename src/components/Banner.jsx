@@ -6,7 +6,7 @@ const Banner = ({ product }) => {
   const { title, description, image, category } = product;
 
   return (
-    <div className='relative min-h-[600px] w-full shrink-0'>
+    <div className='min-h-[600px] w-full shrink-0'>
       <div className='md:flex md:flex-row-reverse md:justify-center min-h-[600px] max-w-[1536px] mx-auto'>
         <div className='p-4 md:p-10 md:flex md:flex-col md:justify-center md:items-start md:basis-2/4'>
           <p

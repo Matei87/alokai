@@ -8,14 +8,17 @@ import {
   SfIconMenu,
   SfIconArrowBack,
   SfCounter,
+  useDisclosure,
 } from '@storefront-ui/react';
 import { useAppSelector } from '../store/hooks.js';
 import { selectCart } from '../store/selectors.js';
+import MiniBag from './MiniBag.jsx';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const NavBar = () => {
   const [inputValue, setInputValue] = useState('');
+  const { isOpen, open, close } = useDisclosure({ initialValue: false });
   const cart = useAppSelector(selectCart);
 
   const actionItems = [
@@ -112,17 +115,14 @@ const NavBar = () => {
         <nav className='flex-1 hidden md:flex justify-end lg:order-last lg:ml-4'>
           <div className='flex flex-row flex-nowrap'>
             {actionItems.map((actionItem) => (
-              <Link
-                href={'/shoppingbag'}
-                className='underline text-lime-500 relative'
-                key={actionItem.ariaLabel}
-              >
+              <div className='relative' key={actionItem.label}>
                 <SfButton
                   className='mr-2 -ml-0.5 rounded-md text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-900'
                   aria-label={actionItem.ariaLabel}
                   variant='tertiary'
                   square
                   slotPrefix={actionItem.icon}
+                  onClick={() => open()}
                 >
                   {actionItem.role === 'login' && (
                     <p className='hidden xl:inline-flex whitespace-nowrap'>
@@ -139,11 +139,12 @@ const NavBar = () => {
                     {cart.length}
                   </SfCounter>
                 )}
-              </Link>
+              </div>
             ))}
           </div>
         </nav>
       </div>
+      <MiniBag isOpen={isOpen} close={close} />
     </header>
   );
 };

@@ -5,7 +5,7 @@ import Image from 'next/image';
 const Hero = ({ product }) => {
   const { title, description, image, category } = product;
   return (
-    <div className='relative min-h-[600px] w-full shrink-0'>
+    <div className='min-h-[600px] w-full shrink-0'>
       <div className='md:flex md:flex-row-reverse md:justify-center min-h-[600px] max-w-[1536px] mx-auto'>
         <div className='flex md:basis-2/4 justify-center align-center'>
           <Image

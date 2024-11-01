@@ -9,7 +9,12 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 const ReduxProvider = ({ children }) => {
   const pathname = usePathname();
-  const navbar = pathname === '/checkout' ? <NavbarCheckout /> : <NavBar />;
+  const navbar =
+    pathname === '/checkout' || pathname === '/shoppingbag' ? (
+      <NavbarCheckout />
+    ) : (
+      <NavBar />
+    );
 
   return (
     <Provider store={store}>

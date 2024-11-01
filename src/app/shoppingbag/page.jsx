@@ -38,7 +38,7 @@ const ShoppingBag = () => {
               href={'/category'}
               className=' items-center justify-center font-bold text-base focus-visible:outline focus-visible:outline-offset rounded-md disabled:text-disabled-500 disabled:bg-disabled-300 disabled:shadow-none disabled:ring-0 disabled:cursor-not-allowed py-2 leading-6 px-4 gap-2 text-primary-700 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 disabled:bg-transparent hidden md:flex'
             >
-              <SfIconArrowBack /> Continue Shopping
+              <SfIconArrowBack /> Back to Shopping
             </Link>
           </div>
           <div className='flex gap-4'>
