@@ -1,5 +1,5 @@
 'use client';
-import { SfButton, SfIconArrowBack } from '@storefront-ui/react';
+import { SfIconClose, SfIconArrowBack } from '@storefront-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import QuantitySelector from '../../components/QuantitySelector.jsx';
@@ -73,14 +73,11 @@ const ShoppingBag = () => {
                     <p className='flex font-bold'>${price}</p>
                   </div>
 
-                  <SfButton
-                    className='flex  leading-5 text-white text-xs border-none py-1 px-1 greyscale'
-                    onClick={() => {
-                      dispatch(removeProductFromCart(id));
-                    }}
-                  >
-                    Remove
-                  </SfButton>
+                  <div className='border border-black rounded-full flex flex-col justify-center self-start hover:cursor-pointer'>
+                    <SfIconClose
+                      onClick={() => dispatch(removeProductFromCart(id))}
+                    />
+                  </div>
                 </div>
               ))}
             </div>

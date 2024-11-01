@@ -1,7 +1,7 @@
 import { useId, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { selectCart } from '../store/selectors.js';
-import { useAppSelector } from '../store/hooks.js';
+import { useAppDispatch, useAppSelector } from '../store/hooks.js';
 import { removeProductFromCart } from '../store/slice.js';
 import QuantitySelector from './QuantitySelector';
 import Image from 'next/image';
@@ -12,6 +12,7 @@ import Apple from '../../public/applePay.svg';
 
 const MiniBag = ({ isOpen, close }) => {
   const cart = useAppSelector(selectCart);
+  const dispatch = useAppDispatch();
   const headingId = useId();
   const descriptionId = useId();
   const modalRef = useRef(null);
@@ -104,24 +105,20 @@ const MiniBag = ({ isOpen, close }) => {
                     />
                   </Link>
 
-                  <div className='flex flex-col justify-center items-center gap-3'>
+                  <div className='flex flex-col h-full gap-2'>
                     <p className='font-medium typography-text-base'>
                       {title.slice(0, 20)}
                     </p>
 
-                    <QuantitySelector quantity={quantity} />
+                    {/* <QuantitySelector quantity={quantity} /> */}
 
                     <p className='flex font-bold'>${price}</p>
                   </div>
-
-                  <SfButton
-                    className='flex  leading-5 text-white text-xs border-none py-1 px-1 greyscale'
-                    onClick={() => {
-                      dispatch(removeProductFromCart(id));
-                    }}
-                  >
-                    Remove
-                  </SfButton>
+                  <div className='border border-black rounded-full flex flex-col justify-center self-start hover:cursor-pointer'>
+                    <SfIconClose
+                      onClick={() => dispatch(removeProductFromCart(id))}
+                    />
+                  </div>
                 </div>
               ))}
             </div>

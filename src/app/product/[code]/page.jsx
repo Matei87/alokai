@@ -36,7 +36,7 @@ const ProductPage = ({ params }) => {
       </section>
       {relatedProducts.length > 0 && (
         <section className='flex flex-col gap-12'>
-          <h2 className='text-3xl font-bold'>Related products</h2>
+          <h2 className='text-3xl font-bold uppercase'>You may also like</h2>
           <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4'>
             {relatedProducts.map((product) => (
               <ProductCard key={product.id} product={product} />

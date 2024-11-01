@@ -1,41 +1,24 @@
 'use client';
-
 import {
   SfRating,
   SfButton,
   SfLink,
   SfCounter,
-  SfIconShoppingCart,
   SfIconCompareArrows,
   SfIconFavorite,
   SfIconPackage,
-  SfIconRemove,
-  SfIconAdd,
   SfIconWarehouse,
   SfIconSafetyCheck,
-  SfIconShoppingCartCheckout,
   useDisclosure,
 } from '@storefront-ui/react';
 import { useAppDispatch } from '../store/hooks.js';
 import { addToCart } from '../store/slice.js';
-import { useCounter } from 'react-use';
-import { useId } from 'react';
-import { clamp } from '@storefront-ui/shared';
 import MiniBag from './MiniBag.jsx';
 
 const ProductDetails = ({ product }) => {
   const { isOpen, open, close } = useDisclosure({ initialValue: false });
   const dispatch = useAppDispatch();
-  const inputId = useId();
-  const min = 1;
-  const max = 999;
-  const [value, { inc, dec, set }] = useCounter(min);
 
-  function handleOnChange(event) {
-    const { value: currentValue } = event.target;
-    const nextValue = parseFloat(currentValue);
-    set(Number(clamp(nextValue, min, max)));
-  }
   return (
     <section className='md:max-w-[640px]'>
       <h1 className='mb-1 font-bold typography-headline-4'>{product.title}</h1>
@@ -60,11 +43,11 @@ const ProductDetails = ({ product }) => {
         dangerouslySetInnerHTML={{ __html: product.description }}
       ></p>
       <div className='py-4 mb-4 border-gray-200 border-y'>
-        <div className='bg-primary-100 text-primary-700 flex justify-center gap-1.5 py-1.5 typography-text-sm items-center mb-4 rounded-md'>
+        {/* <div className='bg-primary-100 text-primary-700 flex justify-center gap-1.5 py-1.5 typography-text-sm items-center mb-4 rounded-md'>
           <SfIconShoppingCartCheckout />1 in cart
-        </div>
+        </div> */}
         <div className='items-start xs:flex'>
-          <div className='flex flex-col items-stretch xs:items-center xs:inline-flex'>
+          {/* <div className='flex flex-col items-stretch xs:items-center xs:inline-flex'>
             <div className='flex border border-neutral-300 rounded-md'>
               <SfButton
                 variant='tertiary'
@@ -102,17 +85,16 @@ const ProductDetails = ({ product }) => {
             <p className='self-center mt-1 mb-4 text-xs text-neutral-500 xs:mb-0'>
               <strong className='text-neutral-900'>{max}</strong> in stock
             </p>
-          </div>
+          </div> */}
           <SfButton
             size='lg'
-            className='w-full xs:ml-4'
-            slotPrefix={<SfIconShoppingCart size='sm' />}
+            className='w-full uppercase'
             onClick={() => {
               dispatch(addToCart(product));
               open();
             }}
           >
-            Add to cart
+            Add to bag
           </SfButton>
         </div>
         <div className='flex justify-center mt-4 gap-x-4'>

@@ -1,11 +1,13 @@
 import {
-  SfLink,
+  SfCounter,
+  SfRating,
   SfButton,
   SfIconChevronLeft,
   SfIconChevronRight,
   SfScrollable,
 } from '@storefront-ui/react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 function ButtonPrev({ disabled = false, ...attributes }) {
   return (
@@ -44,13 +46,13 @@ const ProductSlider = ({ products }) => {
       slotPreviousButton={<ButtonPrev />}
       slotNextButton={<ButtonNext />}
     >
-      {products.map(({ id, image, price, title }) => (
+      {products.map(({ id, image, price, title, rating }) => (
         <div
           key={id}
           className='first:ms-auto last:me-auto ring-1 ring-inset ring-neutral-200 shrink-0 rounded-md hover:shadow-lg w-[148px] h-[290px] lg:w-[192px]'
         >
-          <div className=''>
-            <SfLink href='#' className='block'>
+          <div className='p-2'>
+            <Link href={`/product/${id}`} className='block'>
               <Image
                 src={image}
                 alt={title}
@@ -58,13 +60,16 @@ const ProductSlider = ({ products }) => {
                 width='146'
                 height='146'
               />
-            </SfLink>
+            </Link>
           </div>
-          <div className='p-2 border-t border-neutral-200 typography-text-sm'>
-            <SfLink href='#' variant='secondary' className='no-underline'>
-              {title.slice(0, 20).toLocaleLowerCase()}
-            </SfLink>
-            <span className='block mt-2 font-bold'>${price}</span>
+
+          <div className='flex flex-col gap-1 p-2 border-t border-neutral-200'>
+            <span>{title.slice(0, 20)}</span>
+            <div className='flex items-center'>
+              <SfRating size='xs' value={rating?.rate} max={5} />
+              <SfCounter size='xs'>{rating?.count}</SfCounter>
+            </div>
+            <span className='block font-bold'>${price}</span>
           </div>
         </div>
       ))}

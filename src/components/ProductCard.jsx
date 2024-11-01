@@ -19,7 +19,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className='border border-neutral-200 rounded-md hover:shadow-lg max-w-[300px]'>
-      <div>
+      <div className='p-4'>
         <SfLink href={`/product/${id}`} className='block'>
           <Image
             src={image}
@@ -40,13 +40,13 @@ const ProductCard = ({ product }) => {
         <span className='block font-bold typography-text-lg'>${price}</span>
         <SfButton
           size='sm'
-          slotPrefix={<SfIconShoppingCart size='sm' />}
           onClick={() => {
             dispatch(addToCart(product));
             open();
           }}
+          className='uppercase'
         >
-          Add to cart
+          Add to bag
         </SfButton>
       </div>
       <MiniBag isOpen={isOpen} close={close} />
